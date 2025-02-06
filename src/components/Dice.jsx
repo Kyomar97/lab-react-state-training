@@ -7,10 +7,24 @@ import dice5 from "../assets/images/dice5.png";
 import dice6 from "../assets/images/dice6.png";
 import empty from "../assets/images/dice-empty.png";
 
-const arrayDice= [dice1,dice2,dice3,dice4,dice5,dice6]
+const arrayDice = [dice1, dice2, dice3, dice4, dice5, dice6];
 
-function Dice(){
-    const [randomDice, setRandomDice] = useState(dice 1);
+function Dice() {
+  const [randomDice, setRandomDice] = useState(dice1);
 
-    
+  const rollDice = () => {
+    setImage(empty);
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * diceImages.length);
+      setImage(diceImages[randomIndex]);
+    }, 1000);
+  };
+
+  return (
+    <div>
+      <img src={image} alt="dice" onClick={rollDice} />
+    </div>
+  );
 }
+
+export default Dice;
